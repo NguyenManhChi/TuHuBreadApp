@@ -1,17 +1,27 @@
 import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {Text, Image, View } from "react-native";
+import { Text, Image, View } from "react-native";
 import LoginScreen from "../screen/LoginScreen";
 import SignUpScreen from "../screen/SignUpScreen";
 import HomeScreen from "../screen/HomeScreen";
-import { FontAwesome } from '@expo/vector-icons';
-
+import { FontAwesome } from "@expo/vector-icons";
+import { Ionicons } from '@expo/vector-icons';
+import MenuScreen from "../screen/MenuScreen";
 const Tab = createBottomTabNavigator();
 export class NavBar extends React.Component {
   render() {
     return (
       <Tab.Navigator
-       
+        screenOptions={{
+          tabBarShowLabel: false,
+          headerShown: false,
+          tabBarStyle: {
+            position: "absolute",
+            elevation: 0,
+            backgroundColor: "#ffffff",
+            height: 80,
+          },
+        }}
       >
         <Tab.Screen
           name="HomeScreen"
@@ -24,16 +34,12 @@ export class NavBar extends React.Component {
                   justifyContent: "center",
                 }}
               >
-                <FontAwesome name="home" size={24} color={focused ? "red" : "#000000"} />
-                {/* <Image
-                  source={require("../assets/icon.png")}
-                  resizeMode="contain"
-                  style={{
-                    width: focused ? 35 : 25,
-                    height: focused ? 35 : 25,
-                    tintColor: focused ? "red" : "#000000",
-                  }}
-                /> */}
+                <FontAwesome
+                  name="home"
+                  size={24}
+                  color={focused ? "#ff0751" : "#e0dbe6"}
+                />
+
                 <Text
                   style={{
                     color: "#000000",
@@ -48,8 +54,8 @@ export class NavBar extends React.Component {
           }}
         />
         <Tab.Screen
-          name="SignUpScreen"
-          component={SignUpScreen}
+          name="MenuScreen"
+          component={MenuScreen}
           options={{
             tabBarIcon: ({ focused }) => (
               <View
@@ -58,14 +64,10 @@ export class NavBar extends React.Component {
                   justifyContent: "center",
                 }}
               >
-                <Image
-                  source={require("../assets/icon.png")}
-                  resizeMode="contain"
-                  style={{
-                    width: focused ? 35 : 25,
-                    height: focused ? 35 : 25,
-                    tintColor: focused ? "red" : "#000000",
-                  }}
+                <Ionicons
+                  name="ios-menu-sharp"
+                  size={24}
+                  color={focused ? "#ff0751" : "#e0dbe6"}
                 />
                 <Text
                   style={{
@@ -74,7 +76,7 @@ export class NavBar extends React.Component {
                     fontSize: 15,
                   }}
                 >
-                  Thực đơn
+                  Menu
                 </Text>
               </View>
             ),
@@ -86,4 +88,3 @@ export class NavBar extends React.Component {
 }
 
 export default NavBar;
-

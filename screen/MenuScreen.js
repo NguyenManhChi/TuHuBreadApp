@@ -1,28 +1,60 @@
-import { SafeAreaView, StyleSheet, Text, View,TouchableOpacity } from 'react-native'
-import React from 'react'
-import { useNavigation } from "@react-navigation/native";
-import LoginScreen from "../screen/LoginScreen";
-import SignUpScreen from "../screen/SignUpScreen";
+    import {
+    SafeAreaView,
+    StyleSheet,
+    Text,
+    View,
+    TouchableOpacity,
+    ScrollView,
+    } from "react-native";
+    import React from "react";
+    import { useNavigation } from "@react-navigation/native";
+    import LoginScreen from "../screen/LoginScreen";
+    import SignUpScreen from "../screen/SignUpScreen";
+import { faAddressCard, faBars, faClockRotateLeft, faGear, faGears, faHome, faHouse, faMoneyBillTransfer, faQuestion, faUser } from "@fortawesome/free-solid-svg-icons";
+import Item from "../component/Item";
+    
+    const products = [
+        {
+            icon: faQuestion,
+            nameProduct: 'Giới Thiệu',
+        },
+        {
+            icon: faClockRotateLeft,
+            nameProduct: 'History',
+        },
+        {
+            icon: faGear,
+            nameProduct: 'Setting',
+        },
+        {
+            icon: faUser,
+            nameProduct: 'Login',
+            click: "LoginScreen",
 
-const MenuScreen = ({navigation}) => {
-  return (
-    <SafeAreaView>
-         <View className=" mx-5 flex-initial min-h-fit">
-        <Text className="text-4xl font-semibold text-left">Bắt đầu</Text>
-        <View className=" pt-4 flex-row gap-2">
-          <TouchableOpacity onPress={()=> navigation.navigate("LoginScreen")}>
-            <Text className="text-xl font-medium text-left">Đăng nhập</Text>
-          </TouchableOpacity>
-          <Text className="text-xl font-medium text-left"> / </Text>
-          <TouchableOpacity onPress={()=> navigation.navigate("SignUpScreen")}>
-            <Text className="text-xl font-medium text-left">Đăng ký</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </SafeAreaView>
-  )
-}
+        },
+        {
+            icon: faAddressCard,
+            nameProduct: 'Sign Up',
+            click: "SignUpScreen",
+        },
 
-export default MenuScreen
+    ];
+    const MenuScreen = ({ navigation }) => {
 
-const styles = StyleSheet.create({})
+        return (
+            <SafeAreaView >
+                
+                <ScrollView style={styles.container}>
+                    {
+                        products.map((product,index) => (
+                            <Item key={index} icon={product.icon} name={product.nameProduct}  click={()=> navigation.navigate( product.click)}/>
+                        ))
+                    }
+                </ScrollView>
+            </SafeAreaView>
+        )
+    };
+
+    export default MenuScreen;
+
+    const styles = StyleSheet.create({});

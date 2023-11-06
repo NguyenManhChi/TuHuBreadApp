@@ -75,8 +75,8 @@ const LoginScreen = ({navigation}) => {
             </View>
             <TouchableOpacity style={styles.forgotPassword}>
               <Text>Forgot your password?</Text>
-            </TouchableOpacity>
-            <Button textButton={"Login"} />
+            </TouchableOpacity >
+            <Button textButton={"Login"} onPress={()=> navigation.navigate("NavBar")} />
             <View style={styles.signUp}>
               <Text style={{ color: "#c5c7d0" }}>Don't have an account?</Text>
               <TouchableOpacity onPress={()=> navigation.navigate("SignUpScreen")}>
