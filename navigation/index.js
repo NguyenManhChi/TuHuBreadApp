@@ -5,6 +5,9 @@ import LoginScreen from "../screen/LoginScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screen/HomeScreen";
 import NavBar from "../component/NavBar";
+import Detail from "../screen/Detail";
+import Product from "../component/Product";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 const Stack = createStackNavigator();
 
@@ -30,6 +33,17 @@ const AppNavigator = () => {
        <Stack.Screen
         name="NavBar"
         component={NavBar}
+        options={{ headerShown: false }}
+      />
+       <Stack.Screen
+        name="Product"
+        component={Product}
+        options={{ headerShown: true,
+          headerBackTitle: "Back", }}
+      />
+        <Stack.Screen
+        name="Detail"
+        component={Detail}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

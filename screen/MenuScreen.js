@@ -17,14 +17,17 @@ import Item from "../component/Item";
         {
             icon: faQuestion,
             nameProduct: 'Giới Thiệu',
+            click: "LoginScreen",
         },
         {
             icon: faClockRotateLeft,
             nameProduct: 'History',
+            click: "LoginScreen",
         },
         {
             icon: faGear,
             nameProduct: 'Setting',
+            click: "LoginScreen",
         },
         {
             icon: faUser,

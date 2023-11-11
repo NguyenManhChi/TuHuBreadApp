@@ -67,7 +67,7 @@ const SignUpScreen = ({ navigation }) => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.biggest}>
       <View style={styles.container}>
         <AntDesign name="arrowleft" size={50} color="black" onPress={goBack} />
         <View style={styles.contentContainer}>
@@ -91,6 +91,9 @@ const SignUpScreen = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+  biggest:{
+    backgroundColor: "#ffff",
+  },
   container: {
     // flex: 1,
 

@@ -3,6 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import AppNavigator from './navigation';
 import NavBar from './component/NavBar';
+import Detail from './screen/Detail';
+import Product from './component/Product';
 
 
 export default function App() {
@@ -10,7 +12,7 @@ export default function App() {
     <NavigationContainer>
       <View style={styles.container}>
         <AppNavigator />
-        {/* <NavBar /> */}
+        {/* <Product/> */}
       </View>
     </NavigationContainer>
   );

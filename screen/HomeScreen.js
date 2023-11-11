@@ -13,34 +13,35 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import Swiper from "react-native-swiper";
+import Detail from "../screen/Detail";
 
 const Item = [
   {
-    icon: <FontAwesome5 name="bread-slice" size={24} color="black" />,
-    backcolor: "#fe8c68",
+    icon: <FontAwesome5 name="bread-slice" size={24} color="red" />,
+    backcolor: "#f6f5f8",
     text: "Bánh Mỳ",
+    click: "Detail",
   },
   {
-    icon: <Entypo name="drink" size={24} color="black" />,
-    backcolor: "#efa5a6",
+    icon: <Entypo name="drink" size={24} color="red" />,
+    backcolor: "#f6f5f8",
     text: "Đồ Uống",
+    click: "Detail",
   },
   {
     icon: (
-      <MaterialCommunityIcons name="food-fork-drink" size={24} color="black" />
+      <MaterialCommunityIcons name="food-fork-drink" size={24} color="red" />
     ),
-    backcolor: "#add072",
-    text: "ComBo",
+    backcolor: "#f6f5f8",
+    text: "Combo",
+    click: "Detail",
   },
   {
-    icon: <Ionicons name="ios-pizza-sharp" size={24} color="black" />,
-    backcolor: "#8b9dff",
+    icon: <Ionicons name="ios-pizza-sharp" size={24} color="red" />,
+    backcolor: "#f6f5f8",
     text: "Sandwich",
-  },
-  {
-    icon: <Ionicons name="ios-pizza-sharp" size={24} color="black" />,
-    backcolor: "#8b9dff",
-    text: "Sandwich",
+    click: "Detail",
   },
 ];
 
@@ -77,7 +78,38 @@ const content = [
   },
 ];
 
+const Slide = [
+  {
+    img: require("../assets/tuhu9tuoi.jpg"),
+  },
+  {
+    img: require("../assets/tuhu9tuoi.jpg"),
+  },
+  {
+    img: require("../assets/tuhu9tuoi.jpg"),
+  },
+  {
+    img: require("../assets/tuhu9tuoi.jpg"),
+  },
+  {
+    img: require("../assets/tuhu9tuoi.jpg"),
+  },
+];
+
 const HomeScreen = ({ navigation }) => {
+  const handleIconClick = (selectedCategory) => {
+    let defaultTab = "Bread"; // Default tab name
+
+    if (selectedCategory === "Đồ Uống") {
+      defaultTab = "Drink";
+    } else if (selectedCategory === "Combo") {
+      defaultTab = "Combo";
+    } else if (selectedCategory === "Sandwich") {
+      defaultTab = "Sandwich";
+    }
+
+    navigation.navigate("Product", { defaultTab });
+  };
   return (
     //header
     <SafeAreaView style={styles.BackGroundPage}>
@@ -85,9 +117,14 @@ const HomeScreen = ({ navigation }) => {
         <View>
           <Text style={styles.Title}>Danh Mục</Text>
         </View>
+
         <View style={styles.HeaderItem}>
           {Item.map((ele, index) => (
-            <TouchableOpacity style={styles.ItemBig}>
+            <TouchableOpacity
+              key={index}
+              style={styles.ItemBig}
+              onPress={() => handleIconClick(ele.text)}
+            >
               <View style={[styles.Item, { backgroundColor: ele.backcolor }]}>
                 {ele.icon}
               </View>
@@ -96,13 +133,22 @@ const HomeScreen = ({ navigation }) => {
           ))}
         </View>
       </View>
-          
+
+      <Swiper style={styles.wrapper} showsButtons={true}>
+        {Slide.map((slide, index) => (
+          <View key={index} style={styles.slide1}>
+            <Image source={slide.img} style={styles.image} />
+          </View>
+        ))}
+      </Swiper>
+
       <View style={styles.main}>
         <View>
-          <Image
+          {/* <Image
             source={require("../assets/tuhu9tuoi.jpg")}
             style={styles.imgbody}
-          />
+          /> */}
+
           <FlatList
             style={styles.footer}
             data={content}
@@ -118,20 +164,21 @@ const HomeScreen = ({ navigation }) => {
                     />
                   </View>
                   <View style={styles.prcieContent}>
-                    <View style={{width: "90%"}}>
-                    <Text style={styles.TextItemcontent}>{item.Text}</Text>
-                    </View >
+                    <View style={{ width: "90%" }}>
+                      <Text style={styles.TextItemcontent}>{item.Text}</Text>
+                    </View>
                     <View>
-                    <Text style={styles.TextPrice}>đ {item.Price}</Text>
+                      <Text style={styles.TextPrice}>đ {item.Price}</Text>
                     </View>
                   </View>
                 </TouchableOpacity>
               </View>
             )}
-            numColumns={3} 
+            numColumns={3}
           />
         </View>
       </View>
+      <View style={{ height: 40,width: "100%"}}></View>
     </SafeAreaView>
   );
 };
@@ -172,6 +219,31 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+
+  wrapper: {},
+  slide1: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "red",
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "green",
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "blue",
+  },
+  image: {
+    width: "100%", // Điều chỉnh kích thước hình ảnh theo ý muốn
+    height: "100%",
+  },
+
   iconimg: {
     width: 30,
     height: 30,
@@ -202,104 +274,24 @@ const styles = StyleSheet.create({
   rowContainer: {
     width: "33%",
   },
-  contentItem: {
-
+  contentItem: {},
+  contentBig: {
+    width: "100%",
+    alignItems: "center",
   },
-    contentBig: {
-      width: "100%",
-      alignItems: "center",
-    },
-    prcieContent: {
-      alignItems: "center",
-      justifyContent: "space-around",
-      padding: 5,
-    },
-    TextItemcontent:{
-      alignContent: "center",
-    },
-    imgcontent: {
-      width: 100,
-      height: 100,
-    },
-    TextPrice: {
-      fontWeight: "bold",
-    },
+  prcieContent: {
+    alignItems: "center",
+    justifyContent: "space-around",
+    padding: 5,
+  },
+  TextItemcontent: {
+    alignContent: "center",
+  },
+  imgcontent: {
+    width: 100,
+    height: 100,
+  },
+  TextPrice: {
+    fontWeight: "bold",
+  },
 });
-
-
-  // const styles = StyleSheet.create({
-  //   BackGroundPage: {
-  //     flex: 1, // Use flex: 1 to take up the entire screen
-  //     backgroundColor: "#fff", // Set a background color
-  //   },
-  //   Title: {
-  //     fontSize: 30,
-  //     fontWeight: "bold",
-  //     paddingLeft: 10,
-  //     color: "#515c6e",
-  //   },
-  //   Header: {
-  //     backgroundColor: "#fff", // Use a white background
-  //     padding: 10,
-  //   },
-  //   ItemBig: {
-  //     flex: 1, // Make each item take an equal part of the space
-  //     alignItems: "center",
-  //   },
-  //   HeaderItem: {
-  //     flexDirection: "row",
-  //     justifyContent: "space-between", // Add space between items
-  //     padding: 10,
-  //   },
-  //   Item: {
-  //     width: 60,
-  //     height: 60,
-  //     borderRadius: 30, // Adjust to make it a circle
-  //     alignItems: "center",
-  //     justifyContent: "center",
-  //   },
-  //   TextItem: {
-  //     fontSize: 14,
-  //     fontWeight: "bold",
-  //   },
-  
-  //   main: {
-  //     backgroundColor: "#e9e9e9",
-  //     flex: 1,
-  //     padding: 10,
-  //   },
-  //   imgbody: {
-  //     marginVertical: 20,
-  //     width: '100%',
-  //     height: 250,
-  //   },
-  //   footer: {
-  //     flexDirection: "row",
-  //     flexWrap: "wrap", // Allow content to wrap to the next line
-  //   },
-  //   rowContainer: {
-  //     width: "28%", // Use 33% for three items per row
-  //   },
-  //   contentItem: {
-  //     backgroundColor: "#fff", // Use a white background
-  //     borderRadius: 5,
-  //     padding: 10,
-  //     alignItems: "center",
-  //   },
-  //   contentBig: {
-  //     width: "100%",
-  //     alignItems: "center",
-  //   },
-  //   prcieContent: {
-  //     padding: 5,
-  //   },
-  //   imgcontent: {
-  //     width: 100,
-  //     height: 100,
-  //   },
-  //   TextPrice: {
-  //     fontWeight: "bold",
-  //   },
-  //   TextItemcontent: {},
-  // });
-  
