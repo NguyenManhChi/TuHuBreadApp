@@ -8,6 +8,8 @@ import NavBar from "../component/NavBar";
 import Detail from "../screen/Detail";
 import Product from "../component/Product";
 import { faL } from "@fortawesome/free-solid-svg-icons";
+import ProductDetailScreen from "../screen/ProductDetailScreen";
+import IntroductionScreen from "../screen/IntroductionScreen";
 
 const Stack = createStackNavigator();
 
@@ -39,11 +41,21 @@ const AppNavigator = () => {
         name="Product"
         component={Product}
         options={{ headerShown: true,
-          headerBackTitle: "Back", }}
+          headerBackTitle: "Trờ Về", }}
       />
         <Stack.Screen
         name="Detail"
         component={Detail}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="ProductDetailScreen"
+        component={ProductDetailScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="IntroductionScreen"
+        component={IntroductionScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

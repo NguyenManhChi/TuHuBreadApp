@@ -7,6 +7,12 @@ import HomeScreen from "../screen/HomeScreen";
 import { FontAwesome } from "@expo/vector-icons";
 import { Ionicons } from '@expo/vector-icons';
 import MenuScreen from "../screen/MenuScreen";
+import { AntDesign } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import SearchScreen from "../screen/SearchScreen";
+import IntroductionScreen from "../screen/IntroductionScreen";
+import StoreDetailsScreen from "../screen/StoreDetailsScreen";
+import OrderScreen from "../screen/OrderScreen";
 const Tab = createBottomTabNavigator();
 export class NavBar extends React.Component {
   render() {
@@ -47,13 +53,66 @@ export class NavBar extends React.Component {
                     fontSize: 15,
                   }}
                 >
-                  Home
+                  Trang Chủ
                 </Text>
               </View>
             ),
           }}
         />
         <Tab.Screen
+          name="OrderScreen"
+          component={OrderScreen}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+               <Entypo name="shopping-cart" size={24} color={focused ? "#ff0751" : "#e0dbe6"} />
+                <Text
+                  style={{
+                    color: "#000000",
+                    fontWeight: "bold",
+                    fontSize: 15,
+                  }}
+                >
+                  Giỏ Hàng
+                </Text>
+              </View>
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="StoreDetailsScreen"
+          component={StoreDetailsScreen}
+          options={{
+            tabBarIcon: ({ focused }) => (
+              <View
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Entypo name="heart" size={24}
+                  color={focused ? "#ff0751" : "#e0dbe6"} />
+                <Text
+                  style={{
+                    color: "#000000",
+                    fontWeight: "bold",
+                    fontSize: 15,
+                  }}
+                >
+                  Cửa Hàng
+                </Text>
+              </View>
+            ),
+          }}
+        />
+        
+         
+         <Tab.Screen
           name="MenuScreen"
           component={MenuScreen}
           options={{
@@ -64,11 +123,8 @@ export class NavBar extends React.Component {
                   justifyContent: "center",
                 }}
               >
-                <Ionicons
-                  name="ios-menu-sharp"
-                  size={24}
-                  color={focused ? "#ff0751" : "#e0dbe6"}
-                />
+               <AntDesign name="user" size={24}
+                  color={focused ? "#ff0751" : "#e0dbe6"} />
                 <Text
                   style={{
                     color: "#000000",
@@ -76,7 +132,7 @@ export class NavBar extends React.Component {
                     fontSize: 15,
                   }}
                 >
-                  Menu
+                  Tôi
                 </Text>
               </View>
             ),

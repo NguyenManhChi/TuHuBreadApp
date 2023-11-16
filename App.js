@@ -5,6 +5,7 @@ import AppNavigator from './navigation';
 import NavBar from './component/NavBar';
 import Detail from './screen/Detail';
 import Product from './component/Product';
+import OrderScreen from './screen/OrderScreen';
 
 
 export default function App() {
@@ -12,6 +13,7 @@ export default function App() {
     <NavigationContainer>
       <View style={styles.container}>
         <AppNavigator />
+        {/* <OrderScreen/> */}
         {/* <Product/> */}
       </View>
     </NavigationContainer>

@@ -12,32 +12,33 @@
     import SignUpScreen from "../screen/SignUpScreen";
 import { faAddressCard, faBars, faClockRotateLeft, faGear, faGears, faHome, faHouse, faMoneyBillTransfer, faQuestion, faUser } from "@fortawesome/free-solid-svg-icons";
 import Item from "../component/Item";
+import IntroductionScreen from "./IntroductionScreen";
     
     const products = [
         {
             icon: faQuestion,
             nameProduct: 'Giới Thiệu',
-            click: "LoginScreen",
+            click: "IntroductionScreen",
         },
         {
             icon: faClockRotateLeft,
-            nameProduct: 'History',
-            click: "LoginScreen",
+            nameProduct: 'Lịch Sử',
+            click: "IntroductionScreen",
         },
         {
             icon: faGear,
-            nameProduct: 'Setting',
-            click: "LoginScreen",
+            nameProduct: 'Cài Đặt',
+            click: "IntroductionScreen",
         },
         {
             icon: faUser,
-            nameProduct: 'Login',
+            nameProduct: 'Đăng Nhập',
             click: "LoginScreen",
 
         },
         {
             icon: faAddressCard,
-            nameProduct: 'Sign Up',
+            nameProduct: 'Đăng Ký',
             click: "SignUpScreen",
         },
 

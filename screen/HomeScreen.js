@@ -15,6 +15,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import Swiper from "react-native-swiper";
 import Detail from "../screen/Detail";
+import ProductDetailScreen from "./ProductDetailScreen";
 
 const Item = [
   {
@@ -83,16 +84,13 @@ const Slide = [
     img: require("../assets/tuhu9tuoi.jpg"),
   },
   {
-    img: require("../assets/tuhu9tuoi.jpg"),
+    img: require("../assets/TUHU2.jpg"),
   },
   {
-    img: require("../assets/tuhu9tuoi.jpg"),
+    img: require("../assets/TUHU3.jpg"),
   },
   {
-    img: require("../assets/tuhu9tuoi.jpg"),
-  },
-  {
-    img: require("../assets/tuhu9tuoi.jpg"),
+    img: require("../assets/TUHU4.jpg"),
   },
 ];
 
@@ -155,7 +153,7 @@ const HomeScreen = ({ navigation }) => {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <View style={styles.rowContainer}>
-                <TouchableOpacity style={styles.contentBig}>
+                <TouchableOpacity style={styles.contentBig} onPress={()=> navigation.navigate("ProductDetailScreen", { selectedItem: item })}>
                   <View style={styles.contentItem}>
                     <Image
                       source={item.img}
