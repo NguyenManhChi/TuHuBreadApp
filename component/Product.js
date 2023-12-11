@@ -12,63 +12,63 @@ const bread = [
   {
     image: require("../assets/pic1.jpeg"),
     Text: "Bánh Mỳ Gà Nướng Sả",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "25000",
   },
   {
     image: require("../assets/pic2.jpeg"),
     Text: "Bánh Mỳ Sốt Tiêu Đen",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "40000",
   },
   {
     image: require("../assets/pic3.jpeg"),
     Text: "Bánh Mỳ Sốt Bò Hầm ",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "35000",
   },
   {
     image: require("../assets/pic4.jpeg"),
     Text: "Bánh Mỳ Sốt Bò Hầm ",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "35000",
   },
   {
     image: require("../assets/pic7.jpeg"),
     Text: "Bánh Mỳ Sốt Bò Hầm . ",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "35000",
   },
   {
     image: require("../assets/pic7.jpeg"),
     Text: "Bánh Mỳ Sốt Bò Hầm . ",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "35000",
   },
 ];
 const drink = [
   {
     image: require("../assets/pic8.jpeg"),
     Text: "Trà Tắc Khổng Lồ ",
-    quantity: 1,
+    quanity: 1,
     Price: "10000",
   },
   {
     image: require("../assets/dink2.jpeg"),
     Text: "Trà Tắc Khổng Lồ ",
-    quantity: 1,
+    quanity: 1,
     Price: "10000",
   },
   {
     image: require("../assets/dink3.jpeg"),
     Text: "Trà Tắc Khổng Lồ ",
-    quantity: 1,
+    quanity: 1,
     Price: "10000",
   },
   {
     image: require("../assets/dink4.jpeg"),
     Text: "Trà Tắc Khổng Lồ ",
-    quantity: 1,
+    quanity: 1,
     Price: "10000",
   },
 ];
@@ -76,37 +76,37 @@ const combo = [
   {
     image: require("../assets/combo1.jpeg"),
     Text: "Bánh Mỳ Gà Nướng Sả",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "25000",
   },
   {
     image: require("../assets/combo2.jpeg"),
     Text: "Bánh Mỳ Sốt Tiêu Đen",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "40000",
   },
   {
     image: require("../assets/combo3.jpeg"),
     Text: "Bánh Mỳ Sốt Bò Hầm ",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "35000",
   },
   {
     image: require("../assets/combo4.jpeg"),
     Text: "Bánh Mỳ Sốt Bò Hầm ",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "35000",
   },
   {
     image: require("../assets/combo5.jpeg"),
     Text: "Bánh Mỳ Sốt Bò Hầm . ",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "35000",
   },
   {
     image: require("../assets/combo6.jpeg"),
     Text: "Trà Tắc Khổng Lồ ",
-    quantity: 1,
+    quanity: 1,
     Price: "10000",
   },
 ];
@@ -114,39 +114,39 @@ const sanwich = [
   {
     image: require("../assets/sandwich1.jpeg"),
     Text: "Bánh Mỳ Gà Nướng Sả",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "25000",
   },
   {
     image: require("../assets/sandwich2.jpeg"),
     Text: "Bánh Mỳ Sốt Tiêu Đen",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "40000",
   },
   {
     image: require("../assets/sandwich3.jpeg"),
     Text: "Bánh Mỳ Sốt Bò Hầm ",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "35000",
   },
   {
     image: require("../assets/sandwich4.jpeg"),
     Text: "Bánh Mỳ Sốt Bò Hầm ",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "35000",
   },
   {
     image: require("../assets/sandwich5.jpeg"),
     Text: "Bánh Mỳ Sốt Bò Hầm . ",
-    quantity: 1,
-    Price: "10000",
+    quanity: 1,
+    Price: "35000",
   },
 ];
 
-const BreadDetail = () => <Detail data={bread} />;
-const DrinkDetail = () => <Detail data={drink} />;
-const ComBoDetail = () => <Detail data={combo} />;
-const SandwichDetail = () => <Detail data={sanwich} />;
+// const BreadDetail = () => <Detail data={bread} />;
+// const DrinkDetail = () => <Detail data={drink} />;
+// const ComBoDetail = () => <Detail data={combo} />;
+// const SandwichDetail = () => <Detail data={sanwich} />;
 
 
 

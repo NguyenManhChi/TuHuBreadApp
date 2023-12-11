@@ -13,6 +13,7 @@
 import { faAddressCard, faBars, faClockRotateLeft, faGear, faGears, faHome, faHouse, faMoneyBillTransfer, faQuestion, faUser } from "@fortawesome/free-solid-svg-icons";
 import Item from "../component/Item";
 import IntroductionScreen from "./IntroductionScreen";
+import Profile from "../component/Profile";
     
     const products = [
         {
@@ -20,15 +21,11 @@ import IntroductionScreen from "./IntroductionScreen";
             nameProduct: 'Giới Thiệu',
             click: "IntroductionScreen",
         },
-        {
-            icon: faClockRotateLeft,
-            nameProduct: 'Lịch Sử',
-            click: "IntroductionScreen",
-        },
+        
         {
             icon: faGear,
             nameProduct: 'Cài Đặt',
-            click: "IntroductionScreen",
+            click: "Profile",
         },
         {
             icon: faUser,
@@ -51,7 +48,7 @@ import IntroductionScreen from "./IntroductionScreen";
                 <ScrollView style={styles.container}>
                     {
                         products.map((product,index) => (
-                            <Item key={index} icon={product.icon} name={product.nameProduct}  click={()=> navigation.navigate( product.click)}/>
+                            <Item key={index} icon={product.icon} name={product.nameProduct}  click={()=> navigation.navigate(product.click )}/>
                         ))
                     }
                 </ScrollView>

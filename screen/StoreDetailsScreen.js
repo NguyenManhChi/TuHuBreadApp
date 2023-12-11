@@ -5,7 +5,6 @@ import { openURL } from 'react-native-open-url';
 import { Linking } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
-
 const StoreDetailsScreen = ({ route }) => {
   const { selectedItem } = route.params;
 
@@ -28,14 +27,14 @@ const StoreDetailsScreen = ({ route }) => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#f6f5f8" }}>
-      <View style={{ alignItems: "center", justifyContent: "center" }}>
-        <Text style={{ fontSize: 24 }}>Cửa Hàng</Text>
-      </View>
+      
       <View style={{ padding: 16 }}>
-        <Text style={{ marginLeft: 60, paddingBottom: 20 }}>
+        <View style={{alignItems: "center", justifyContent: "center"}}>
+        <Text style={{ fontSize: 20, paddingBottom: 20, color: "red", fontWeight: "bold" }}>
           {" "}
           {selectedItem.name}
         </Text>
+        </View>
         <Text style={styles.textItem}>
           <AntDesign name="home" size={24} color="red" /> {selectedItem.address}
         </Text>
@@ -48,7 +47,7 @@ const StoreDetailsScreen = ({ route }) => {
       </View>
       <Button title="Mở Bằng Google Maps" onPress={handleOpenMap} />
       <MapView
-        style={{ flex: 1 ,marginLeft: 20, width:"90%" }}
+        style={{ flex: 1 ,width: "90%", marginHorizontal: 20, }}
         initialRegion={{
           latitude: selectedItem.coordinates.latitude,
           longitude: selectedItem.coordinates.longitude,
@@ -65,10 +64,13 @@ const StoreDetailsScreen = ({ route }) => {
     </SafeAreaView>
   );
 };
-
 export default StoreDetailsScreen;
 const styles = StyleSheet.create({
   location:{
-    color: "red",
-  }
+    color: "black",
+  },
+  logo: {
+    width: 130,
+    height: "50%",
+  },
 });

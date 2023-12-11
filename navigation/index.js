@@ -12,6 +12,7 @@ import ProductDetailScreen from "../screen/ProductDetailScreen";
 import IntroductionScreen from "../screen/IntroductionScreen";
 import ItemCartDetail from "../component/ItemCartDetail";
 import StoreDetailsScreen from "../screen/StoreDetailsScreen";
+import Profile from "../component/Profile";
 
 const Stack = createStackNavigator();
 
@@ -22,7 +23,9 @@ const AppNavigator = () => {
        <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true,
+          headerBackTitle: "Trở Về",
+          headerTitle: "Đăng Nhập" }}
       />
       <Stack.Screen
         name="SignUpScreen"
@@ -43,7 +46,8 @@ const AppNavigator = () => {
         name="Product"
         component={Product}
         options={{ headerShown: true,
-          headerBackTitle: "Trở Về", }}
+          headerBackTitle: "Trở Về",
+          headerTitle: "Sản Phẩm"  }}
       />
         <Stack.Screen
         name="Detail"
@@ -58,17 +62,29 @@ const AppNavigator = () => {
       <Stack.Screen
         name="IntroductionScreen"
         component={IntroductionScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true
+        ,headerBackTitle: "Trở Về",
+        headerTitle: "Giới Thiệu"  }}
       />
       <Stack.Screen
         name="ItemCartDetail"
         component={ItemCartDetail}
-        options={{ headerShown: false }}
+        options={{ headerShown: true
+          ,headerBackTitle: "Trở Về",
+          headerTitle: "Chi Tiết Sản Phẩm" }}
       />
       <Stack.Screen
         name="StoreDetailsScreen"
         component={StoreDetailsScreen}
-        options={{ headerShown: false }}
+        options={{ headerShown: true
+          ,headerBackTitle: "Trở Về",
+          headerTitle: "Cửa Hàng" }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{ headerShown: true,
+          headerBackTitle: "Trở Về", }}
       />
     </Stack.Navigator>
   );

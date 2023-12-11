@@ -1,10 +1,16 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+import {Image, View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
 
 const IntroductionScreen = ({navigation}) => {
   return (
     <SafeAreaView contentContainerStyle={styles.container}>
+      <ScrollView>
       <Text style={styles.title}>Câu chuyện thương hiệu của Tuhu</Text>
+      <Image
+        source={require("../assets/ThuongHieu.jpg")}
+        style={styles.img}
+        resizeMode="cover"
+      />
       <Text style={styles.paragraph}>
         Từ hành trình đặt những bước chân đến khắp mọi nơi trên thế giới, người sáng lập Tuhu đã
         ấp ủ mong ước rằng có thể mang ẩm thực thế giới vào trong chiếc bánh mì Việt Nam. Lấy ý
@@ -25,11 +31,17 @@ const IntroductionScreen = ({navigation}) => {
         món ăn an tâm, chất lượng cùng niềm tâm huyết với ẩm thực, Tuhu đang nỗ lực phát triển và
         hoàn thiện, xứng đáng với kỳ vọng của thực khách trong nước và quốc tế.
       </Text>
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  img:{
+    width: "100%",
+    height: 400,
+
+  },
   container: {
     padding: 30,
     alignItems: "center",

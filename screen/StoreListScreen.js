@@ -9,8 +9,8 @@ import { Feather } from "@expo/vector-icons";
 import StoreDetailsScreen from "./StoreDetailsScreen";
 const storeInfo = [
   {
-    name: "Cửa hàng TuHu Bread",
-    address: "Số 10  Phố Triều Khúc, Thanh Xuân, Hà Nội",
+    name: "Phố Triều Khúc",
+    address: "10 P. Triều Khúc, Thanh Xuân Nam, Thanh Xuân, Hà Nội, Việt Nam",
     phone: "0353051530",
     openingHours: "8:00 AM - 6:00 PM",
     coordinates: {
@@ -19,33 +19,33 @@ const storeInfo = [
     },
   },
   {
-    name: "Cửa hàng TuHu Bread",
-    address: "Số 10  Phố Triều Khúc, Thanh Xuân, Hà Nội",
+    name: "Thuỵ Khuê",
+    address: "15C Đ. Thụy Khuê, Thuỵ Khuê, Tây Hồ, Hà Nội, Việt Nam",
     phone: "0353051530",
     openingHours: "8:00 AM - 6:00 PM",
     coordinates: {
-      latitude: 20.9865782, // Update with the correct latitude
-      longitude: 105.7977008,
+      latitude: 21.0427208, // Update with the correct latitude
+      longitude: 105.8292766,
     },
   },
   {
-    name: "Cửa hàng TuHu Bread",
-    address: "Số 10  Phố Triều Khúc, Thanh Xuân, Hà Nội",
+    name: "Trần Quốc Hoàn",
+    address: "5 Ngõ 199 Trần Quốc Hoàn, Dịch Vọng Hậu, Cầu Giấy, Hà Nội, Việt Nam",
     phone: "0353051530",
     openingHours: "8:00 AM - 6:00 PM",
     coordinates: {
-      latitude: 20.9865782, // Update with the correct latitude
-      longitude: 105.7977008,
+      latitude: 21.0414849, // Update with the correct latitude
+      longitude: 105.779233617,
     },
   },
   {
-    name: "Cửa hàng TuHu Bread",
-    address: "Số 10  Phố Triều Khúc, Thanh Xuân, Hà Nội",
+    name: "Nguyễn Tuân",
+    address: "Số 10 Nguyễn Tuân, Thanh Xuân, Hà Nội",
     phone: "0353051530",
     openingHours: "8:00 AM - 6:00 PM",
     coordinates: {
-      latitude: 20.9865782, // Update with the correct latitude
-      longitude: 105.7977008,
+      latitude: 20.9946333, // Update with the correct latitude
+      longitude: 105.7850362,
     },
   },
 ];
@@ -83,10 +83,12 @@ const StoreListScreen = ({ navigation }) => {
                         color="red"
                         style={styles.item}
                       />
-                      <Text style={{ marginLeft: 60, paddingBottom: 20 }}>
+                      <View style={{alignItems: "center", justifyContent: "center"}}>
+                      <Text style={{ fontSize:20,color: "red", paddingBottom: 20, fontWeight: "bold" }}>
                         {" "}
                         {item.name}
                       </Text>
+                      </View>
                       <Text style={styles.textItem}>
                         <AntDesign name="home" size={24} color="red" />{" "}
                         {item.address}

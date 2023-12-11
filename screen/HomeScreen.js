@@ -105,11 +105,11 @@ const HomeScreen = ({ navigation }) => {
     let defaultTab = "Bread"; // Default tab name
 
     if (selectedCategory === "Đồ Uống") {
-      defaultTab = "Drink";
+      defaultTab = "Đồ Uống";
     } else if (selectedCategory === "Combo") {
       defaultTab = "Combo";
     } else if (selectedCategory === "Sandwich") {
-      defaultTab = "Sandwich";
+      defaultTab = "Khác";
     }
 
     navigation.navigate("Product", { defaultTab });

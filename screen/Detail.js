@@ -10,13 +10,12 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import ProductDetailScreen from "./ProductDetailScreen";
 import { useNavigation } from "@react-navigation/native";
-import ItemCartDetail from "../component/ItemCartDetail";
 
 
 const Detail = ({ data, navigation }) => {
   const handleItemPress = (item) => {
     // Navigate to ProductDetailScreen and pass the selected item's data
-    navigation.navigate("ItemCartDetail", { selectedItem: item });
+    navigation.navigate("ProductDetailScreen", { selectedItem: item });
   };
 
 

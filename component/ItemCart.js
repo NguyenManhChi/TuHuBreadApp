@@ -60,7 +60,7 @@ const ItemCart = (props) => {
             >
              
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity >
               <Text style={styles.actionText}>Xóa</Text>
             </TouchableOpacity>
           </View>
