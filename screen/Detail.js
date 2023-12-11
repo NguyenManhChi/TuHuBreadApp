@@ -10,12 +10,13 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import ProductDetailScreen from "./ProductDetailScreen";
 import { useNavigation } from "@react-navigation/native";
+import ItemCartDetail from "../component/ItemCartDetail";
 
 
 const Detail = ({ data, navigation }) => {
   const handleItemPress = (item) => {
     // Navigate to ProductDetailScreen and pass the selected item's data
-    navigation.navigate("ProductDetailScreen", { selectedItem: item });
+    navigation.navigate("ItemCartDetail", { selectedItem: item });
   };
 
 
@@ -43,7 +44,11 @@ const Detail = ({ data, navigation }) => {
                   <Text style={styles.TextItemcontent}>{item.Text}</Text>
                 </View>
                 <View style={styles.BottomPrice}>
-                  <Text style={styles.TextPrice}>đ {item.Price}</Text>
+                  <Text style={styles.TextPrice}>đ {(item.Price).toLocaleString("vi-VN", {
+              style: "currency",
+              currency: "VND",
+              minimumFractionDigits: 0,
+            })}</Text>
                   <TouchableOpacity>
                     <AntDesign name="plussquare" size={24} color="#ff6131" />
                   </TouchableOpacity>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet, Alert } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 
 const ItemCart = (props) => {
   const data = props.data;
@@ -10,16 +12,63 @@ const ItemCart = (props) => {
   const toggleDescription = () => {
     setIsActiveDescription(!isAvtiveDescription);
   };
+  const removeFromCart = async (data) => {
+    try {
+      let cart = await AsyncStorage.getItem("cartData");
+      cart = cart ? JSON.parse(cart) : [];
 
+      const updatedCart = cart.filter((item) => item.name !== data.name);
+
+      await AsyncStorage.setItem("cartData", JSON.stringify(updatedCart));
+
+      Alert.alert(`Đã xóa ${data.name} khỏi giỏ hàng`);
+    } catch (e) {
+      console.log("Lỗi xóa khỏi giỏ hàng: " + e.message);
+    }
+  };
+  const addCartData = async (data) => {
+    try {
+      let cart = await AsyncStorage.getItem("cartData");
+      cart = cart ? JSON.parse(cart) : [];
+  
+      const existingItemIndex = cart.findIndex(selectedItem => selectedItem.name === data.name);
+  
+      if (existingItemIndex !== -1) {
+        cart[existingItemIndex].quantity += 1;
+      } else {
+        cart = [...cart, { ...data, quantity: 1 }];
+      }
+  
+      await AsyncStorage.setItem("cartData", JSON.stringify(cart));
+  
+      Alert.alert("Thêm món ăn thành công");
+  
+    } catch (e) {
+      console.log("Lỗi lưu data local: " + e.message);
+    }
+  };
+  const setCartData = async (data, quantity) => {
+    try {
+      let cart = await AsyncStorage.getItem("cartData");
+      cart = cart ? JSON.parse(cart) : [];
+      const indexToUpdate = cart.findIndex((selectedItem) => selectedItem.name === data.name);
+  
+      if (indexToUpdate !== -1) {
+        data.quantity = quantity;
+        cart[indexToUpdate] = { ...cart[indexToUpdate], ...data };
+        
+        await AsyncStorage.setItem("cartData", JSON.stringify(cart));
+  
+       
+      } 
+    } catch (e) {
+      console.log("Lỗi lưu data local: " + e.message);
+    }
+  };
   return (
     <TouchableOpacity
       style={styles.cartItemContainer}
-      onPress={() => {
-        navigation.reset({
-          index: 0,
-          routes: [{ name: "ItemDetail", params: { data: data, isCart: true } }],
-        });
-      }}
+      
     >
       <View style={styles.itemRow}>
         <View style={styles.imageContainer}>
@@ -31,17 +80,7 @@ const ItemCart = (props) => {
         </View>
         <View style={styles.detailsContainer}>
           <Text style={styles.itemName}>{data.name}</Text>
-          <TouchableOpacity
-            style={styles.descriptionToggle}
-            onPress={toggleDescription}
-          >
-            {!isAvtiveDescription && (
-              <AntDesign name="down" size={18} color="black" />
-            )}
-            {isAvtiveDescription && (
-              <AntDesign name="up" size={18} color="black" />
-            )}
-          </TouchableOpacity>
+          
           {isAvtiveDescription && (
             <View style={styles.descriptionContainer}>
               
@@ -60,7 +99,12 @@ const ItemCart = (props) => {
             >
              
             </TouchableOpacity>
-            <TouchableOpacity >
+            <TouchableOpacity 
+                onPress={() => {
+                  removeFromCart(data);
+                  
+                }}            
+            >
               <Text style={styles.actionText}>Xóa</Text>
             </TouchableOpacity>
           </View>
@@ -71,7 +115,7 @@ const ItemCart = (props) => {
           <TouchableOpacity
             style={styles.quantityButton}
             onPress={() => {
-              if (quantity - 1 >= 1) setQuantity(quantity - 1);
+              if (quantity - 1 >= 1) {setQuantity(quantity - 1);setCartData(data, quantity-1);};
             }}
           >
             <AntDesign name="minus" size={20} color="black" />
@@ -79,7 +123,7 @@ const ItemCart = (props) => {
           <Text style={styles.quantityText}>{quantity}</Text>
           <TouchableOpacity
             style={styles.quantityButton}
-            onPress={() => setQuantity(quantity + 1)}
+            onPress={() => {setQuantity(quantity + 1);setCartData(data, quantity+1);}}
           >
             <AntDesign name="plus" size={20} color="black" />
           </TouchableOpacity>
@@ -145,7 +189,10 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   actionText: {
+    marginRight:10,
+    marginBottom: 40,
     fontWeight: "bold",
+    fontSize: 18,
     textDecorationLine: "underline",
   },
   quantityContainer: {

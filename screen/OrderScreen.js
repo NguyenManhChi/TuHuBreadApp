@@ -203,6 +203,7 @@ const styles = StyleSheet.create({
     height: 50,
   },
   startOrderButton: {
+    marginLeft:70,
     backgroundColor: "#e74c3c",
     justifyContent: "center",
     alignItems: "center",
@@ -245,6 +246,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   emptyCartImage: {
+    marginTop: 10,
+    marginLeft: 40,
     width: "100%",
     height: "100%",
   },

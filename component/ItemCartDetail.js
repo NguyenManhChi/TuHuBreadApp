@@ -33,6 +33,7 @@ const ItemCartDetail = ({ route }) => {
       console.log("Lỗi lưu data local: " + e.message);
     }
   };
+  
   const addCartData = async (data) => {
     try {
       let cart = await AsyncStorage.getItem("cartData");
@@ -54,6 +55,7 @@ const ItemCartDetail = ({ route }) => {
       console.log("Lỗi lưu data local: " + e.message);
     }
   };
+  
 
   return (
     <View style={styles.container}>
@@ -64,7 +66,11 @@ const ItemCartDetail = ({ route }) => {
       <View style={styles.TextBig}>
         {/* Display other details based on selectedItem */}
         <Text style={styles.TextChiTiet}>Tuhu bữa chính đầy đủ dưỡng chất và no bụng: tùy chọn 1 bánh mì & 1 cặp sandwich phomai & 1 đồ uống bất kỳ. </Text>
-        <Text style={styles.TexPrice}>đ {selectedItem.Price}</Text>
+        <Text style={styles.TexPrice}>{(selectedItem.Price ).toLocaleString("vi-VN", {
+              style: "currency",
+              currency: "VND",
+              minimumFractionDigits: 0,
+            })}</Text>
       </View>
       {/* <View style={styles.AddCart}>
       <Button
