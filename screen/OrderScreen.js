@@ -18,36 +18,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRoute } from "@react-navigation/native";
 
 const OrderScreen = ({ navigation }) => {
-  // const listCart = [
-  //   {
-  //     id: 1,
-  //     image: require("../assets/combo1.jpeg"),
-  //     Text: "2 Bánh mì heo nướng Chiangmai + 2 Fanta/Sprite/Coca-Cola",
-  //     : 35000,
-  //     quantity: 1,
-  //     description:
-  //       "Cơm gà (1 Phần) + Gà Giòn Cay + Gà Rán(1 miếng) + Gà Giòn Cay + Pepsi Lon",
-  //   },
-  //   {
-  //     id: 2,
-  //     image: require("../assets/combo2.jpeg"),
-  //     Text: "2 Bánh mì heo nướng Chiangmai + 2 Fanta/Sprite/Coca-Cola",
-  //     : 35000,
-  //     quantity: 1,
-  //     description:
-  //       "Cơm gà (1 Phần) + Gà Giòn Cay + Gà Rán(1 miếng) + Gà Giòn Cay + Pepsi Lon",
-  //   },
-  //   {
-  //     id: 3,
-  //     image: require("../assets/combo3.jpeg"),
-  //     Text: "2 Bánh mì heo nướng Chiangmai + 2 Fanta/Sprite/Coca-Cola",
-  //     : 35000,
-  //     quantity: 1,
-  //     description:
-  //       "Cơm gà (1 Phần) + Gà Giòn Cay + Gà Rán(1 miếng) + Gà Giòn Cay + Pepsi Lon",
-  //   },
-  // ]; // Assuming listCart is defined elsewhere in your code
-  
+
   const route = useRoute();
   const params = route.params;
   const [listCart, SetListCart] = useState(null);
@@ -57,16 +28,25 @@ const OrderScreen = ({ navigation }) => {
     try {
       const cartDataString = await AsyncStorage.getItem("cartData");
       const cartData = JSON.parse(cartDataString || "[]");
-      console.log("cart", cartData);
+      
       SetListCart(cartData);
     } catch (e) {
       console.log("Lỗi lưu data local: ", e.message);
     }
   };
-
-  useEffect(() => {
+  const resetCart = async  () =>{
+    try {
+      await AsyncStorage.setItem("cartData", JSON.stringify([]));
+    } catch (e) {
+      console.log("Lỗi lưu data local: ");
+    }
+  }
+  const executeOnLoad = () => {
     getCartData();
-  }, [params]);
+  };
+  useEffect(() => {
+    executeOnLoad();
+  });
 
  
   const cartLength = listCart ? listCart.length : 0;
@@ -79,7 +59,7 @@ const OrderScreen = ({ navigation }) => {
   
   
   return (
-    <SafeAreaView>
+    <SafeAreaView onLayout={executeOnLoad}>
       <View>
         {/* Header */}
         <View style={styles.header}>
@@ -159,7 +139,7 @@ const OrderScreen = ({ navigation }) => {
                                 </View>
                                 <View style={styles.paymentButtonContainer}>
                                   <TouchableOpacity
-                                  onPress={()=> navigation.navigate("NavBar")}
+                                  onPress={()=> { navigation.navigate("NavBar"); resetCart();} }
                                     style={styles.paymentButton}
                                   >
                                     <Text style={styles.paymentButtonText}>
