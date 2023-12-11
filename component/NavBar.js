@@ -14,6 +14,7 @@ import IntroductionScreen from "../screen/IntroductionScreen";
 import StoreDetailsScreen from "../screen/StoreDetailsScreen";
 import OrderScreen from "../screen/OrderScreen";
 import Order from "../navigation/Order";
+import StoreListScreen from "../screen/StoreListScreen";
 
 const Tab = createBottomTabNavigator();
 export class NavBar extends React.Component {
@@ -87,8 +88,8 @@ export class NavBar extends React.Component {
           }}
         />
         <Tab.Screen
-          name="StoreDetailsScreen"
-          component={StoreDetailsScreen}
+          name="StoreListScreen"
+          component={StoreListScreen}
           options={{
             tabBarIcon: ({ focused }) => (
               <View

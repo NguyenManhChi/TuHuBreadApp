@@ -11,6 +11,7 @@ import { faL } from "@fortawesome/free-solid-svg-icons";
 import ProductDetailScreen from "../screen/ProductDetailScreen";
 import IntroductionScreen from "../screen/IntroductionScreen";
 import ItemCartDetail from "../component/ItemCartDetail";
+import StoreDetailsScreen from "../screen/StoreDetailsScreen";
 
 const Stack = createStackNavigator();
 
@@ -62,6 +63,11 @@ const AppNavigator = () => {
       <Stack.Screen
         name="ItemCartDetail"
         component={ItemCartDetail}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="StoreDetailsScreen"
+        component={StoreDetailsScreen}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>
