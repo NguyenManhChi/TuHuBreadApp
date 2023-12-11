@@ -7,7 +7,6 @@ const ItemCart = (props) => {
   const navigation = props.navigation;
   const [isAvtiveDescription, setIsActiveDescription] = useState(false);
   const [quantity, setQuantity] = useState(data.quantity);
-
   const toggleDescription = () => {
     setIsActiveDescription(!isAvtiveDescription);
   };
@@ -25,7 +24,7 @@ const ItemCart = (props) => {
       <View style={styles.itemRow}>
         <View style={styles.imageContainer}>
           <Image
-            source={{ uri: data.image }}
+            source={data.image}
             style={styles.image}
             resizeMode="contain"
           />
@@ -54,12 +53,12 @@ const ItemCart = (props) => {
                 navigation.reset({
                   index: 0,
                   routes: [
-                    { name: "ItemDetail", params: { data: data, isCart: true } },
+                    { name: "ItemCartDetail", params: { data: data, isCart: true } },
                   ],
                 });
               }}
             >
-              <Text style={styles.actionText}>Chỉnh Sửa</Text>
+             
             </TouchableOpacity>
             <TouchableOpacity>
               <Text style={styles.actionText}>Xóa</Text>
@@ -87,7 +86,7 @@ const ItemCart = (props) => {
         </View>
         <View style={styles.totalAmountContainer}>
           <Text style={styles.totalAmountText}>
-            {(data.price * quantity).toLocaleString("vi-VN", {
+            {(data.Price * quantity).toLocaleString("vi-VN", {
               style: "currency",
               currency: "VND",
               minimumFractionDigits: 0,

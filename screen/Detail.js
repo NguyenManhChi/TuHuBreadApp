@@ -10,12 +10,13 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import ProductDetailScreen from "./ProductDetailScreen";
 import { useNavigation } from "@react-navigation/native";
+import ItemCartDetail from "../component/ItemCartDetail";
 
 
 const Detail = ({ data, navigation }) => {
   const handleItemPress = (item) => {
     // Navigate to ProductDetailScreen and pass the selected item's data
-    navigation.navigate("ProductDetailScreen", { selectedItem: item });
+    navigation.navigate("ItemCartDetail", { selectedItem: item });
   };
 
 
@@ -33,7 +34,7 @@ const Detail = ({ data, navigation }) => {
             >
               <View style={styles.contentItem}>
                 <Image
-                  source={item.img}
+                  source={item.image}
                   style={styles.imgcontent}
                   resizeMode="contain"
                 />

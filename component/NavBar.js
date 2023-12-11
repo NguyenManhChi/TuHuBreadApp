@@ -13,6 +13,8 @@ import SearchScreen from "../screen/SearchScreen";
 import IntroductionScreen from "../screen/IntroductionScreen";
 import StoreDetailsScreen from "../screen/StoreDetailsScreen";
 import OrderScreen from "../screen/OrderScreen";
+import Order from "../navigation/Order";
+
 const Tab = createBottomTabNavigator();
 export class NavBar extends React.Component {
   render() {
@@ -60,8 +62,8 @@ export class NavBar extends React.Component {
           }}
         />
         <Tab.Screen
-          name="OrderScreen"
-          component={OrderScreen}
+          name="Order"
+          component={Order}
           options={{
             tabBarIcon: ({ focused }) => (
               <View

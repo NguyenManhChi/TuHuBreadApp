@@ -48,34 +48,40 @@ const Item = [
 
 const content = [
   {
-    img: require("../assets/pic1.jpeg"),
-    Text: "Bánh Mỳ Gà Nướng Sả",
-    Price: "25,000",
+    image: require("../assets/pic1.jpeg"),
+    name: "Bánh Mỳ Gà Nướng Sả",
+    quantity: 1,
+    Price: "25000",
   },
   {
-    img: require("../assets/pic2.jpeg"),
-    Text: "Bánh Mỳ Sốt Tiêu Đen",
-    Price: "40,000",
+    image: require("../assets/pic2.jpeg"),
+    name: "Bánh Mỳ Sốt Tiêu Đen",
+    quantity: 1,
+    Price: "40000",
   },
   {
-    img: require("../assets/pic3.jpeg"),
-    Text: "Bánh Mỳ Sốt Bò Hầm ",
-    Price: "35,000",
+    image: require("../assets/pic3.jpeg"),
+    name: "Bánh Mỳ Sốt Bò Hầm ",
+    quantity: 1,
+    Price: "35000",
   },
   {
-    img: require("../assets/pic4.jpeg"),
-    Text: "Bánh Mỳ Sốt Bò Hầm ",
-    Price: "35,000",
+    image: require("../assets/pic4.jpeg"),
+    name: "Bánh Mỳ Sốt Bò Hầm ",
+    quantity: 1,
+    Price: "35000",
   },
   {
-    img: require("../assets/pic7.jpeg"),
-    Text: "Bánh Mỳ Sốt Bò Hầm . ",
-    Price: "35,000",
+    image: require("../assets/pic7.jpeg"),
+    name: "Bánh Mỳ Sốt Bò Hầm . ",
+    quantity: 1,
+    Price: "35000",
   },
   {
-    img: require("../assets/pic8.jpeg"),
-    Text: "Trà Tắc Khổng Lồ ",
-    Price: "10,000",
+    image: require("../assets/pic8.jpeg"),
+    name: "Trà Tắc Khổng Lồ ",
+    quantity: 1,
+    Price: "10000",
   },
 ];
 
@@ -153,17 +159,17 @@ const HomeScreen = ({ navigation }) => {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <View style={styles.rowContainer}>
-                <TouchableOpacity style={styles.contentBig} onPress={()=> navigation.navigate("ProductDetailScreen", { selectedItem: item })}>
+                <TouchableOpacity style={styles.contentBig} onPress={()=> navigation.navigate("ItemCartDetail", { selectedItem: item })}>
                   <View style={styles.contentItem}>
                     <Image
-                      source={item.img}
+                      source={item.image}
                       style={styles.imgcontent}
                       resizeMode="contain"
                     />
                   </View>
                   <View style={styles.prcieContent}>
                     <View style={{ width: "90%" }}>
-                      <Text style={styles.TextItemcontent}>{item.Text}</Text>
+                      <Text style={styles.TextItemcontent}>{item.name}</Text>
                     </View>
                     <View>
                       <Text style={styles.TextPrice}>đ {item.Price}</Text>
