@@ -25,13 +25,13 @@ const Taikhoan = [
   },
   {
     placeholder: "Số Điện Thoại",
-    keyboard: "default",
-    secureTextEntry: true,
+    keyboard: "number-pad",
+    secureTextEntry: false,
   },
   {
     placeholder: "Nhập Email",
     keyboard: "email-address",
-    secureTextEntry: true,
+    secureTextEntry: false,
   },
 ];
 const Matkhau = [
@@ -39,16 +39,17 @@ const Matkhau = [
   {
     titlename:"Mật Khẩu",
     placeholder: "Nhập mật khẩu cũ",
-    keyboard: "default",
+    keyboard: "visible-password",
+    secureTextEntry: true,
   },
   {
     placeholder: "Nhập mật khẩu mới",
-    keyboard: "default",
+    keyboard: "visible-password",
     secureTextEntry: true,
   },
   {
     placeholder: "Nhập lại mật khẩu",
-    keyboard: "default",
+    keyboard: "visible-password",
     secureTextEntry: true,
   },
 ];
