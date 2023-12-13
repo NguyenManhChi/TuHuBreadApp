@@ -44,11 +44,11 @@ const Detail = ({ data, navigation }) => {
                   <Text style={styles.TextItemcontent}>{item.Text}</Text>
                 </View>
                 <View style={styles.BottomPrice}>
-                  <Text style={styles.TextPrice}>đ {(item.Price).toLocaleString("vi-VN", {
-              style: "currency",
-              currency: "VND",
-              minimumFractionDigits: 0,
-            })}</Text>
+                  <Text style={styles.TextPrice}>{parseFloat(item.Price).toLocaleString("vi-VN", {
+    style: "currency",
+    currency: "VND",
+    minimumFractionDigits: 0,
+  })}</Text>
                   <TouchableOpacity>
                     <AntDesign name="plussquare" size={24} color="#ff6131" />
                   </TouchableOpacity>

@@ -172,7 +172,11 @@ const HomeScreen = ({ navigation }) => {
                       <Text style={styles.TextItemcontent}>{item.name}</Text>
                     </View>
                     <View>
-                      <Text style={styles.TextPrice}>đ {item.Price}</Text>
+                      <Text style={styles.TextPrice}>{parseFloat(item.Price).toLocaleString("vi-VN", {
+    style: "currency",
+    currency: "VND",
+    minimumFractionDigits: 0,
+  })}</Text>
                     </View>
                   </View>
                 </TouchableOpacity>

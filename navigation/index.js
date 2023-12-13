@@ -84,7 +84,8 @@ const AppNavigator = () => {
         name="Profile"
         component={Profile}
         options={{ headerShown: true,
-          headerBackTitle: "Trở Về", }}
+          headerBackTitle: "Trở Về",
+          headerTitle: "Tài Khoản"  }}
       />
     </Stack.Navigator>
   );
