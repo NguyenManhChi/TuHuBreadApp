@@ -29,7 +29,7 @@ const OrderScreen = ({ navigation }) => {
       const cartDataString = await AsyncStorage.getItem("cartData");
       const cartData = JSON.parse(cartDataString || "[]");
       
-      SetListCart(cartData);
+      SetListCart(cartData.reverse());
     } catch (e) {
       console.log("Lỗi lưu data local: ", e.message);
     }
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   emptyCartContent: {
-    height: 400,
+    height: 600,
     backgroundColor: "white",
     marginHorizontal: 5,
     borderRadius: 10,
@@ -241,14 +241,14 @@ const styles = StyleSheet.create({
     paddingTop: 5,
   },
   emptyCartImageContainer: {
-    width: "65%",
-    height: "50%",
     marginLeft: 10,
+    width: "100%",
+    height: "55%",
+
   },
   emptyCartImage: {
-    marginTop: 10,
-    marginLeft: 40,
-    width: "100%",
+    marginTop: 50,
+    width: "90%",
     height: "100%",
   },
 
