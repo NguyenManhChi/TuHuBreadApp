@@ -96,7 +96,7 @@ const ItemCartDetail = ({ route }) => {
 						>
 							<AntDesign name="minus" size={20} color="black" />
 						</TouchableOpacity>
-						<Text style={styles.quantityText}>{quantity}</Text>
+						<Text style={styles.quantityText}>{quantity == 1}</Text>
 						<TouchableOpacity
 							style={styles.quantityButton}
 							onPress={() => setQuantity(quantity + 1)}

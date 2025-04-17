@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
     left: "55%",
   },
   signUp: {
+    paddingTop: 10,
     paddingLeft: "22%",
     paddingVertical: 60,
     flexDirection: "row",

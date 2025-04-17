@@ -66,7 +66,6 @@ const Profile = ({ route }) => {
     );
 
   return (
-    <NavigationContainer independent={true}>
       <Tab.Navigator initialRouteName={defaultTab}>
         <Tab.Screen
           name="Cập Nhật Tài Khoản"
@@ -77,7 +76,6 @@ const Profile = ({ route }) => {
           component={renderDetailScreen(Matkhau)}
         />
       </Tab.Navigator>
-    </NavigationContainer>
   );
 };
 

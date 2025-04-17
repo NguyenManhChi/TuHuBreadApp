@@ -46,7 +46,7 @@ const OrderScreen = ({ navigation }) => {
   };
   useEffect(() => {
     executeOnLoad();
-  });
+  },);
 
  
   const cartLength = listCart ? listCart.length : 0;

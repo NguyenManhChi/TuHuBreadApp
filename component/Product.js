@@ -151,23 +151,22 @@ const sanwich = [
 
 
 
-
 const Product = ({ route, navigation }) => {
   const defaultTab = route.params?.defaultTab || 'Bread';
 
   const renderDetailScreen = (data) => () => <Detail data={data} navigation={navigation} />;
 
   return (
-    <NavigationContainer independent={true}>
       <Tab.Navigator initialRouteName={defaultTab}>
         <Tab.Screen name="Bánh Mỳ" component={renderDetailScreen(bread)} />
         <Tab.Screen name="Đồ Uống" component={renderDetailScreen(drink)} />
         <Tab.Screen name="Combo" component={renderDetailScreen(combo)} />
         <Tab.Screen name="Khác" component={renderDetailScreen(sanwich)} />
       </Tab.Navigator>
-    </NavigationContainer>
   );
 };
 export default Product;
 
 const styles = StyleSheet.create({});
+
+

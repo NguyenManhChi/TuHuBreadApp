@@ -26,27 +26,7 @@ const ItemCart = (props) => {
       console.log("Lỗi xóa khỏi giỏ hàng: " + e.message);
     }
   };
-  const addCartData = async (data) => {
-    try {
-      let cart = await AsyncStorage.getItem("cartData");
-      cart = cart ? JSON.parse(cart) : [];
-  
-      const existingItemIndex = cart.findIndex(selectedItem => selectedItem.name === data.name);
-  
-      if (existingItemIndex !== -1) {
-        cart[existingItemIndex].quantity += 1;
-      } else {
-        cart = [...cart, { ...data, quantity: 1 }];
-      }
-  
-      await AsyncStorage.setItem("cartData", JSON.stringify(cart));
-  
-      Alert.alert("Thêm món ăn thành công");
-  
-    } catch (e) {
-      console.log("Lỗi lưu data local: " + e.message);
-    }
-  };
+
   const setCartData = async (data, quantity) => {
     try {
       let cart = await AsyncStorage.getItem("cartData");
